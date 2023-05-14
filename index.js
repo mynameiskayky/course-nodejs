@@ -13,7 +13,11 @@ app.get("/blog/:article?", (req, res) => {
 })
 
 app.get("/canal/youtube", (req, res) => {
-  res.send("<h1>Olá! este é meu canal.</h1>")
+  const canal = req.query['canal']
+
+  if(canal) res.send(`<h1>Bem vindo ao: ${canal}</h1>`)
+
+  res.send("<h1>Olá! nenhum canal foi encontrado</h1>")
 })
 
 app.get("/ola/:nome/:empresa", (req, res) => {
